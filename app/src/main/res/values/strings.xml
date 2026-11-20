@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">简听</string>
+    <string name="library">音乐库</string>
+    <string name="tab_songs">全部</string>
+    <string name="tab_albums">专辑</string>
+    <string name="tab_artists">歌手</string>
+    <string name="tab_folders">文件夹</string>
+    <string name="tab_playlists">歌单</string>
+    <string name="search_hint">搜索歌曲 / 歌手</string>
+    <string name="empty_songs">没有找到本地音乐\n点右上角刷新扫描</string>
+    <string name="empty_search">没有匹配的歌曲</string>
+    <string name="no_lyrics">暂无歌词</string>
+    <string name="permission_needed">需要读取音频权限才能扫描本地音乐</string>
+    <string name="grant">去授权</string>
+    <string name="scanning">正在扫描…</string>
+    <string name="unknown_artist">未知歌手</string>
+    <string name="unknown_album">未知专辑</string>
+    <string name="scan">扫描</string>
+    <string name="back">返回</string>
+    <string name="source_title">音乐源</string>
+    <string name="source_help">协议说明</string>
+    <string name="source_search_hint">搜索在线歌曲</string>
+    <string name="source_empty">还没有音乐源\n点下方「＋ 添加音乐源」填入接口地址</string>
+    <string name="source_download">下载</string>
+    <string name="source_delete">删除音源</string>
+    <string name="source_add">＋ 添加音乐源</string>
+    <string name="source_enabled">已启用</string>
+    <string name="source_disabled">已停用</string>
+    <string name="source_none_result">没有搜到结果，换个关键词或检查音源</string>
+</resources>

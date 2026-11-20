@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/player_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <!-- 封面背景层：默认隐藏，开启后由代码加载封面并按设置模糊 -->
+    <ImageView
+        android:id="@+id/bg_cover"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="背景封面"
+        android:scaleType="centerCrop"
+        android:visibility="gone" />
+
+    <!-- 压暗/雾化层，保证前景文字可读 -->
+    <View
+        android:id="@+id/bg_scrim"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.78"
+        android:background="@color/bg"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/player_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="22dp"
+        android:paddingEnd="22dp">
+
+    <!-- 顶栏：返回 + 标题 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:padding="8dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/on_bg" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="正在播放"
+            android:textColor="@color/on_bg_sub"
+            android:textSize="13sp" />
+
+        <View
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+    </LinearLayout>
+
+    <!-- 封面 + 歌名 + 三行歌词：整块支持左右滑 -->
+    <com.saltreplica.app.GestureLayout
+        android:id="@+id/gesture_area"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/cover"
+            android:layout_width="240dp"
+            android:layout_height="240dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/bg_cover_placeholder"
+            android:contentDescription="专辑封面"
+            android:scaleType="centerCrop"
+            app:shapeAppearanceOverlay="@style/ShapeCoverLarge" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/on_bg"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/artist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="1"
+            android:textColor="@color/on_bg_sub"
+            android:textSize="12sp" />
+
+        <!-- 三行歌词：当前句加粗放大，前后句缩小 + 降透明度，切句有滚动淡入 -->
+        <LinearLayout
+            android:id="@+id/lyric_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:gravity="center_vertical"
+            android:minHeight="104dp"
+            android:orientation="vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <TextView
+                android:id="@+id/tv_lyric_prev"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.55"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/on_bg"
+                android:textSize="12.5sp" />
+
+            <TextView
+                android:id="@+id/tv_lyric_current"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="14dp"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:lineSpacingExtra="4dp"
+                android:maxLines="2"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="19sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_lyric_next"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:alpha="0.42"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:textColor="@color/on_bg"
+                android:textSize="12.5sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </com.saltreplica.app.GestureLayout>
+
+    <!-- 细线进度条 -->
+    <SeekBar
+        android:id="@+id/seek"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:maxHeight="2dp"
+        android:minHeight="2dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:progressDrawable="@drawable/progress_thin"
+        android:splitTrack="false"
+        android:thumb="@drawable/thumb_dot" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/on_bg_sub"
+            android:textSize="11sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textColor="@color/on_bg_sub"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <!-- 中间三键 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_prev"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="上一首"
+            android:padding="10dp"
+            android:src="@drawable/ic_prev"
+            android:tint="@color/on_bg" />
+
+        <ImageView
+            android:id="@+id/btn_play"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:background="@drawable/bg_play_button"
+            android:contentDescription="播放/暂停"
+            android:padding="19dp"
+            android:src="@drawable/ic_play"
+            android:tint="@color/play_icon" />
+
+        <ImageView
+            android:id="@+id/btn_next"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="下一首"
+            android:padding="10dp"
+            android:src="@drawable/ic_next"
+            android:tint="@color/on_bg" />
+    </LinearLayout>
+
+    <!-- 底部四个功能键：播放模式 / 加入歌单 / 收藏 / 播放列表 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/btn_mode"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:alpha="0.62"
+            android:contentDescription="播放模式"
+            android:padding="4dp"
+            android:src="@drawable/ic_mode_order"
+            android:tint="@color/on_bg" />
+
+        <ImageView
+            android:id="@+id/btn_add_playlist"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:alpha="0.62"
+            android:contentDescription="添加到歌单"
+            android:padding="4dp"
+            android:src="@drawable/ic_add_playlist"
+            android:tint="@color/on_bg" />
+
+        <ImageView
+            android:id="@+id/btn_heart"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:alpha="0.62"
+            android:contentDescription="收藏"
+            android:padding="4dp"
+            android:src="@drawable/ic_heart"
+            android:tint="@color/on_bg" />
+
+        <ImageView
+            android:id="@+id/btn_queue"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:alpha="0.62"
+            android:contentDescription="播放列表"
+            android:padding="4dp"
+            android:src="@drawable/ic_queue"
+            android:tint="@color/on_bg" />
+    </LinearLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="16dp" />
+
+    </LinearLayout>
+</FrameLayout>

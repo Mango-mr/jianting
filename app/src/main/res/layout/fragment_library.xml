@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 顶栏 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="16dp"
+        android:paddingTop="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="4dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/avatar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar_ji"
+            app:shapeAppearanceOverlay="@style/ShapeCover" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/library"
+            android:textColor="@color/on_bg"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/tv_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:minWidth="40dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_sort"
+                android:tint="@color/on_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="排序"
+                android:textColor="@color/on_bg"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/tv_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:minWidth="40dp"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:contentDescription="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_settings"
+                android:tint="@color/on_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:text="设置"
+                android:textColor="@color/on_bg"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/btn_source"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/source_title"
+            android:padding="9dp"
+            android:src="@drawable/ic_source"
+            android:tint="@color/on_bg" />
+
+        <ImageView
+            android:id="@+id/btn_scan"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:contentDescription="@string/scan"
+            android:padding="9dp"
+            android:src="@drawable/ic_refresh"
+            android:tint="@color/on_bg" />
+    </LinearLayout>
+
+    <!-- 搜索框 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_search"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp">
+
+        <ImageView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:contentDescription="@string/search_hint"
+            android:src="@drawable/ic_search"
+            android:tint="@color/on_bg_sub" />
+
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:background="@null"
+            android:hint="@string/search_hint"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:maxLines="1"
+            android:textColor="@color/on_bg"
+            android:textColorHint="@color/hint_text"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- 分组详情的返回条 -->
+    <LinearLayout
+        android:id="@+id/detail_bar"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="6dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="20dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/btn_detail_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/back"
+            android:padding="10dp"
+            android:src="@drawable/ic_back"
+            android:tint="@color/on_bg" />
+
+        <TextView
+            android:id="@+id/tv_detail_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:textColor="@color/on_bg"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <!-- 分类标签 -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginTop="6dp"
+        android:background="@android:color/transparent"
+        android:paddingStart="6dp"
+        android:paddingEnd="6dp"
+        app:tabIndicatorColor="?attr/colorPrimary"
+        app:tabIndicatorFullWidth="false"
+        app:tabMode="fixed"
+        app:tabPaddingStart="0dp"
+        app:tabPaddingEnd="0dp"
+        app:tabRippleColor="@android:color/transparent"
+        app:tabTextAppearance="@style/TabTextAppearance"
+        app:tabTextColor="@color/on_bg_sub" />
+
+    <!-- 列表区 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="12dp"
+            android:scrollbars="none" />
+
+        <LinearLayout
+            android:id="@+id/empty_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:alpha="0.35"
+                android:src="@drawable/ic_music"
+                android:tint="@color/on_bg_sub" />
+
+            <TextView
+                android:id="@+id/tv_empty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:gravity="center"
+                android:lineSpacingExtra="6dp"
+                android:text="@string/empty_songs"
+                android:textColor="@color/on_bg_sub"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/btn_grant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:background="@drawable/bg_search"
+                android:paddingStart="22dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="22dp"
+                android:paddingBottom="10dp"
+                android:text="@string/grant"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="14sp"
+                android:visibility="gone" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <!-- 迷你播放条 -->
+    <LinearLayout
+        android:id="@+id/mini_bar"
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/bg_card"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingEnd="8dp"
+        android:visibility="gone"
+        android:elevation="6dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/mini_cover"
+            android:layout_width="46dp"
+            android:layout_height="46dp"
+            android:contentDescription="封面"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bg_cover_placeholder"
+            app:shapeAppearanceOverlay="@style/ShapeCover" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/mini_title"
+                style="@style/TextTitle"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/mini_sub"
+                style="@style/TextSub"
+                android:layout_marginTop="3dp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/mini_prev"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="上一首"
+            android:padding="10dp"
+            android:src="@drawable/ic_prev"
+            android:tint="@color/on_bg_sub" />
+
+        <ImageView
+            android:id="@+id/mini_play"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:contentDescription="播放/暂停"
+            android:padding="10dp"
+            android:src="@drawable/ic_play"
+            android:tint="?attr/colorPrimary" />
+
+        <ImageView
+            android:id="@+id/mini_next"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:contentDescription="下一首"
+            android:padding="10dp"
+            android:src="@drawable/ic_next"
+            android:tint="@color/on_bg_sub" />
+    </LinearLayout>
+
+</LinearLayout>

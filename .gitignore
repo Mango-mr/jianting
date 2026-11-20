@@ -1,0 +1,33 @@
+# Gradle / Android Studio
+.gradle/
+.kotlin/
+build/
+app/build/
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 本机配置（含 SDK 路径，绝不能提交）
+local.properties
+
+# IDE
+.idea/
+*.iml
+
+# 签名与密钥
+*.jks
+*.keystore
+keystore.properties
+
+# 系统与日志
+.DS_Store
+Thumbs.db
+*.log
+
+# 构建产物
+*.apk
+*.aab
+*.ap_
+
+# 本地开发脚本（硬编码了本机路径，不对外发布）
+/tools/

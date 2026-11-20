@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 自绘弹框卡片：奶白微暖底 + 大圆角，替代系统 AlertDialog 的白底直角 -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/surface" />
+    <corners android:radius="20dp" />
+</shape>

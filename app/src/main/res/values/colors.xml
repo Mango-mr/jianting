@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 冷调奶白：灰白基底 + 极淡暖，防止发黄；奶白主题强调色为近黑，不留紫色 -->
+    <color name="seed">#FF1C1C1E</color>
+    <color name="primary">#FF1C1C1E</color>
+    <color name="primary_container">#FFE8E6E2</color>
+    <color name="secondary">#FF8E877C</color>
+    <color name="secondary_container">#FFEFEAE2</color>
+
+    <color name="bg">#FFF6F5F3</color>
+    <color name="surface">#FFFCFCFA</color>
+    <color name="surface_variant">#FFECE9E4</color>
+    <color name="surface_deep">#FFE4E0DA</color>
+
+    <color name="on_bg">#FF23211E</color>
+    <color name="on_bg_sub">#FF78736B</color>
+    <color name="outline">#FFE2DFDA</color>
+    <color name="divider">#FFE4E1DC</color>
+
+    <color name="mini_bar">#FFFCFCFA</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- 搜索框：纯白底 + 更淡的占位文字 -->
+    <color name="search_bg">#FFFFFFFF</color>
+    <color name="hint_text">#FFB7B2AA</color>
+
+    <!-- 自绘弹框 / 轻提示 -->
+    <color name="scrim">#66000000</color>
+    <color name="ripple_soft">#1A1C1C1E</color>
+    <color name="ripple_mask">#FFF0EDE8</color>
+    <color name="tip_bg">#F0322E2A</color>
+    <color name="tip_text">#FFFFFFFF</color>
+
+    <!-- 播放主键：深底白图标，作为整页唯一的重色焦点 -->
+    <color name="play_bg">#FF1C1C1E</color>
+    <color name="play_icon">#FFFFFFFF</color>
+</resources>

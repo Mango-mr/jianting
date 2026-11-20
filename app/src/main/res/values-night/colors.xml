@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 深色：深炭黑 + 淡紫高光 -->
+    <color name="seed">#FFC0AEDB</color>
+    <color name="primary">#FFC0AEDB</color>
+    <color name="primary_container">#FF332E3F</color>
+    <color name="secondary">#FFCFC8BC</color>
+    <color name="secondary_container">#FF2F2C27</color>
+
+    <color name="bg">#FF131312</color>
+    <color name="surface">#FF1B1A18</color>
+    <color name="surface_variant">#FF252320</color>
+    <color name="surface_deep">#FF2D2A26</color>
+
+    <color name="on_bg">#FFF0EDE9</color>
+    <color name="on_bg_sub">#FF9E978D</color>
+    <color name="outline">#FF302D28</color>
+    <color name="divider">#FF2E2B26</color>
+
+    <color name="mini_bar">#FF1B1A18</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+
+    <!-- 搜索框：夜间用略高于底色的一层，占位文字更淡 -->
+    <color name="search_bg">#FF232120</color>
+    <color name="hint_text">#FF6B655E</color>
+
+    <color name="scrim">#99000000</color>
+    <color name="ripple_soft">#33C0AEDB</color>
+    <color name="ripple_mask">#FF2D2A26</color>
+    <color name="tip_bg">#F0F0EDE9</color>
+    <color name="tip_text">#FF191817</color>
+
+    <color name="play_bg">#FFC0AEDB</color>
+    <color name="play_icon">#FF1A1820</color>
+</resources>
